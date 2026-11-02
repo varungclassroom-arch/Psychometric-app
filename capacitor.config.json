@@ -1,0 +1,8 @@
+{
+ "appId": "in.varun.psychometric",
+ "appName": "Psychometric Report",
+ "webDir": "www",
+ "android": {
+  "allowMixedContent": false
+ }
+}

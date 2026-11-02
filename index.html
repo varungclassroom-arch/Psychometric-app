@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Psychometric Report Generator</title><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#4f46e5"><link rel="apple-touch-icon" href="icon-192.png"><style>body{margin:0;background:#fff;font-family:Segoe UI,Tahoma,Arial,sans-serif}#bootmsg{padding:40px 20px;text-align:center;color:#555}</style></head><body><div id="bootmsg">Loading…</div>
+<script>
+(async function(){
+var vr=function(t){var m=/name="app-version" content="(\d+)"/.exec(t);return m?+m[1]:0};
+try{if(localStorage.getItem('psyPin'))document.documentElement.className+=' locked'}catch(e){}
+var bundled=await (await fetch('app.html')).text(),bv=vr(bundled),use=bundled,st=null;
+try{st=JSON.parse(localStorage.getItem('psyUpd')||'null')}catch(e){}
+try{
+ if(st){
+  if(localStorage.getItem('psyTry')===String(st.v)){localStorage.removeItem('psyUpd');localStorage.removeItem('psyTry');st=null}
+  else if(st.v>bv){localStorage.setItem('psyTry',String(st.v));use=st.html}
+  else if(st.v<bv){localStorage.removeItem('psyUpd')}
+ }
+}catch(e){}
+var d=new DOMParser().parseFromString(use,'text/html');
+document.title=d.title||document.title;
+var scripts=[].slice.call(d.querySelectorAll('script'));
+scripts.forEach(function(s){s.parentNode.removeChild(s)});
+[].slice.call(d.head.children).forEach(function(n){if(n.tagName==='META'&&n.getAttribute('charset'))return;if(n.tagName==='TITLE')return;document.head.appendChild(document.importNode(n,true))});
+document.body.innerHTML=d.body.innerHTML;
+document.body.className=d.body.className||'';
+for(var i=0;i<scripts.length;i++){var n=document.createElement('script');n.textContent=scripts[i].textContent;document.body.appendChild(n)}
+})().catch(function(e){document.getElementById('bootmsg').textContent='Could not start: '+e});
+</script>
+<script>try{if('serviceWorker' in navigator&&/^https?:/.test(location.protocol)&&!window.Capacitor){navigator.serviceWorker.register('sw.js')}}catch(e){}</script>
+</body></html>

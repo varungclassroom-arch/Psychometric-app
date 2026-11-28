@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="app-version" content="45">
+<html lang="en"><head><meta charset="utf-8"><meta name="app-version" content="46">
 <script>/*psyTheme*/(function(){try{var t=JSON.parse(localStorage.getItem('psyTheme')||'{}'),A={indigo:['#4f46e5','#06b6d4','#1e1b8f'],teal:['#0f766e','#0ea5e9','#134e4a'],rose:['#be123c','#f97316','#881337'],emerald:['#047857','#84cc16','#064e3b'],slate:['#334155','#64748b','#0f172a']},a=A[t.a]||A.indigo,r=document.documentElement;r.style.setProperty('--g1',a[0]);r.style.setProperty('--g2',a[1]);r.style.setProperty('--h0',a[2]);if(t.m==='dark'||(t.m==='auto'&&matchMedia('(prefers-color-scheme: dark)').matches))r.setAttribute('data-mode','dark')}catch(e){}})()</script><script>try{if(localStorage.getItem('psyPin'))document.documentElement.className+=' locked'}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script>/*!
@@ -1588,6 +1588,63 @@ body.wz #l1UI .opt input[value=Adequate]:checked+span{background:#0f222c;color:#
 body.wz #l1UI .opt input[value=Difficulty]:checked+span{background:#ffde00;color:#0f222c;box-shadow:0 2px 0 #c9ae00}
 body.wz #l1UI .opt input[value=Disability]:checked+span{background:#ffb5a8;color:#0f222c;box-shadow:0 2px 0 #e08d7c}
 body.wz #l1UI .opt input:focus-visible+span{outline:2px solid #b54a35;outline-offset:2px}
+/* home header v46 */
+#psyHome .hm-hero{padding:calc(20px + env(safe-area-inset-top,0px)) 20px 62px!important}
+#psyHome .hm-in h1,#psyHome .hm-in p{display:none!important}
+#psyHome .hm-sub{font-size:20px!important;font-weight:600;color:#fff!important;margin:18px 0 0!important}
+.wzlogo{display:flex;align-items:center;gap:14px;margin:0!important}
+.wzlogo img{width:64px!important;height:64px!important;border-radius:32px;box-shadow:0 0 0 3px #1d3a48;flex:0 0 auto}
+.wzlt{display:flex;flex-direction:column;justify-content:center;gap:2px;min-width:0}
+.wzlt b{font-size:22px!important;letter-spacing:.05em;line-height:1.1;margin:0}
+.wzlt em{font-style:normal;font-size:12px;line-height:1.35;color:#a9c6cf;letter-spacing:.02em;text-transform:uppercase}
+#psyHome .hm-body{margin-top:-40px!important}
+/* settings name card */
+.wzset{background:#fff;border-radius:16px;padding:14px 16px;margin:0 0 12px;box-shadow:0 1px 2px rgba(15,34,44,.06),0 6px 16px rgba(15,34,44,.05);font-family:Poppins,'Segoe UI',Roboto,Arial,sans-serif;color:#0f222c}
+.wzsd{font-size:12.5px;color:#4d6470;margin:4px 0 10px}
+.wzrow{display:flex;gap:10px}
+.wzrow input{flex:1;min-width:0;height:46px;border:0;border-radius:12px;background:#eef2f3;box-shadow:inset 0 2px 0 #dde3e6;padding:0 14px;font:600 16px Poppins,sans-serif;color:#0f222c}
+.wzrow button{height:46px;padding:0 18px;border:0;border-radius:12px;background:#ffde00;color:#0f222c;font:600 15px Poppins,sans-serif;box-shadow:0 2px 0 #c9ae00;cursor:pointer}
+#psyLib .thSeg button.on{background:#0f222c!important;border-color:#0f222c!important;color:#fff!important}
+/* dark mode */
+html.wzdark body.wz,html.wzdark body.wz #wzTop,html.wzdark body.wz #wzBar,html.wzdark #psyHome{background:#0b1a21!important;color:#e8f0f2!important}
+html.wzdark body.wz{color:#e8f0f2!important}
+html.wzdark .wzt,html.wzdark #wzN{color:#e8f0f2}
+html.wzdark body.wz .wzcard,html.wzdark body.wz details.dom,html.wzdark body.wz .brc,html.wzdark .wzci,html.wzdark #wzLH,html.wzdark body.wz #l1UI .grp,html.wzdark body.wz #boxN>.fld,html.wzdark body.wz.wz-main main,html.wzdark .wzset{background:#15303c!important;box-shadow:0 1px 0 #050e13!important;color:#e8f0f2!important}
+html.wzdark body.wz #wzS_tests,html.wzdark body.wz #wzS_review,html.wzdark body.wz #boxN{background:transparent!important}
+html.wzdark body.wz .panel input:not([type=radio]):not([type=checkbox]):not([type=file]),html.wzdark body.wz .panel select,html.wzdark body.wz textarea,html.wzdark .wzrow input{background:#0b1a21!important;color:#e8f0f2!important;box-shadow:inset 0 2px 0 #050e13!important}
+html.wzdark body.wz .fld,html.wzdark body.wz small,html.wzdark body.wz h2.sec,html.wzdark body.wz .hd,html.wzdark .wzsd,html.wzdark body.wz details.dom .gl,html.wzdark body.wz .brg>span.hd{color:#a9c6cf!important}
+html.wzdark body.wz #boxM .r,html.wzdark body.wz details.dom[open]>summary{border-color:#1d3a48!important}
+html.wzdark .wzb,html.wzdark .wz2,html.wzdark body.wz .tchip{background:#15303c!important;color:#e8f0f2!important;box-shadow:inset 0 0 0 1px #2a4a58!important}
+html.wzdark .wzb svg path{stroke:#e8f0f2}
+html.wzdark body.wz .tchip.on{background:#ffde00!important;color:#0f222c!important}
+html.wzdark .wzi{background:#0b1a21}html.wzdark .wzi svg{stroke:#e8f0f2}
+html.wzdark .tchip.on .wzi{background:#0f222c}html.wzdark .tchip.on .wzi svg{stroke:#ffde00}
+html.wzdark #wzProg span{background:#2a4a58}html.wzdark #wzProg span.on{background:#e8f0f2}html.wzdark #wzProg span.cur{background:#ffde00}
+html.wzdark body.wz #cin{background:#0b1a21}
+html.wzdark body.wz details.dom .opt span,html.wzdark .wzq button{background:#0b1a21!important;color:#c3d4d9!important;box-shadow:0 2px 0 #050e13!important}
+html.wzdark body.wz details.dom .opt input:checked+span{background:#ffde00!important;color:#0f222c!important}
+html.wzdark .wzq button.on[data-v=Adequate]{background:#e8f0f2!important;color:#0f222c!important}
+html.wzdark .wzq button.on[data-v=Difficulty]{background:#ffde00!important;color:#0f222c!important}
+html.wzdark .wzq button.on[data-v=Disability]{background:#ffb5a8!important;color:#0f222c!important}
+html.wzdark body.wz #l1UI .opt span{background:#0b1a21;color:#e8f0f2;box-shadow:0 2px 0 #050e13}
+html.wzdark body.wz #l1UI .gl{color:#e8f0f2!important}
+html.wzdark .wzci i{background:#0b1a21;color:#a9c6cf}
+html.wzdark #psyHome .hm-hero{background:#15303c!important}
+html.wzdark #psyHome .hm-cont,html.wzdark #psyHome .hm-t,html.wzdark #psyHome .hm-r{background:#15303c!important;color:#e8f0f2!important;box-shadow:0 1px 0 #050e13!important}
+html.wzdark #psyHome .hm-t svg,html.wzdark #psyHome .hm-cont svg{stroke:#e8f0f2!important}
+html.wzdark #psyHome small,html.wzdark #psyHome h3,html.wzdark #psyHome .hm-foot{color:#a9c6cf!important}
+html.wzdark #psyLib{background:#0b1a21!important;color:#e8f0f2!important}
+html.wzdark #psyLib div[style*="background:#fff"],html.wzdark #psyLib button[style*="background:#fff"],html.wzdark [id^=psy]>div[style*="background:#fff"]{background:#15303c!important;color:#e8f0f2!important;border-color:#2a4a58!important}
+html.wzdark #psyLib [style*="color:#555"],html.wzdark #psyLib [style*="color:#666"],html.wzdark #psyLib [style*="color:#777"],html.wzdark #psyLib [style*="color:#444"],html.wzdark [id^=psy] [style*="color:#444"],html.wzdark [id^=psy] [style*="color:#555"]{color:#a9c6cf!important}
+html.wzdark #psyLib input,html.wzdark [id^=psy] input{background:#0b1a21!important;color:#e8f0f2!important;border-color:#2a4a58!important}
+html.wzdark #psyLib .thSeg button{background:#0b1a21!important;color:#e8f0f2!important;border-color:#2a4a58!important}
+html.wzdark #psyLib .thSeg button.on{background:#ffde00!important;color:#0f222c!important;border-color:#ffde00!important}
+html{--g1:#0f222c!important;--g2:#0f222c!important;--h0:#0f222c!important}
+html.wzdark body.wz #wzS_tests .tchip.on{color:#0f222c!important}
+html.wzdark #psyHome .hm-new,html.wzdark #psyHome .hm-new b,html.wzdark #psyHome .hm-new small{color:#0f222c!important}
+.wzlt em{font-size:11px}
+html.wzdark{--g1:#ffde00!important;--g2:#ffde00!important}
+html.wzdark #psyLib [style*="var(--g1)"],html.wzdark #psyLib .on{color:#0f222c!important}
 </style>
 <script>/* ---- IMHAPS guided steps (v45) ---- */
 (function(){
@@ -1672,8 +1729,31 @@ const _dr=window.draw;window.draw=function(){const r=_dr.apply(this,arguments);t
 document.addEventListener('input',()=>setTimeout(()=>{try{colorIQ();updateSLD()}catch(e){}},0));
 /* --- home screen --- */
 let sig='';const sg=()=>(($('cn')||{}).value||'')+'|'+(($('cd')||{}).value||'');
-function deco(o){const h=o.querySelector('.hm-in');if(h&&!h.querySelector('.wzlogo'))h.insertAdjacentHTML('afterbegin','<div class="wzlogo"><img src="'+MARK+'" alt=""><span><b>IMHAPS</b><small>Psychometric reports</small></span></div>')}
+const uName=()=>{try{return(localStorage.getItem('psyUser')||'').trim()}catch(e){return''}};function deco(o){const h=o.querySelector('.hm-in');if(!h)return;if(!h.querySelector('.wzlogo'))h.insertAdjacentHTML('afterbegin','<div class="wzlogo"><img src="'+MARK+'" alt="IMHAPS logo"><span class="wzlt"><b>IMHAPS</b><em>Mental Health and Educational (OPC) Pvt Ltd</em></span></div>');const sub=h.querySelector('.hm-sub');if(sub){if(!sub.dataset.g)sub.dataset.g=sub.textContent.replace(/,.*$/,'');const n=uName();const t=sub.dataset.g+(n?', '+n:'');if(sub.textContent!==t)sub.textContent=t}}
 let ho=null;new MutationObserver(()=>{const o=$('psyHome');if(o&&!ho){sig=sg();ho=new MutationObserver(()=>deco(o));ho.observe(o,{childList:true});deco(o)}else if(!o&&ho){ho.disconnect();ho=null;if(sg()!==sig||!sg().replace('|',''))cur='client';render(1)}}).observe(B,{childList:true});
+
+function back(){const L=[...B.children].filter(e=>e.id&&e.id!=='psyLock'&&e.id!=='psyHome'&&e.id!=='psyLib'&&e.id!=='wzBar'&&e.id!=='wzTop'&&getComputedStyle(e).position==='fixed'&&(+getComputedStyle(e).zIndex||0)>=99000);
+if($('psyLock'))return true;
+if(L.length){L[L.length-1].remove();return true}
+const lib=$('psyLib');if(lib){lib.remove();if($('psyHome'))try{openHome()}catch(e){}return true}
+if(B.classList.contains('wz-main')){$('wzPrev').click();return true}
+if(!$('psyHome')){if(cur==='client')openHome();else go(-1);return true}
+return false}
+window.wzBack=back;
+const nat=(()=>{try{return !!(window.Capacitor&&Capacitor.isNativePlatform&&Capacitor.isNativePlatform())}catch(e){return false}})();
+if(nat){try{const A=Capacitor.Plugins&&Capacitor.Plugins.App;if(A)A.addListener('backButton',()=>{if(!back())A.exitApp()})}catch(e){}}
+else{try{history.pushState({wz:1},'');addEventListener('popstate',()=>{if(back())history.pushState({wz:1},'');else history.back()})}catch(e){}}
+/* --- theme: light / dark / auto for the IMHAPS design --- */
+function thm(){let t={m:'light'};try{t=window.psyTheme?psyTheme.get():t}catch(e){}let d=t.m==='dark';try{if(t.m==='auto')d=matchMedia('(prefers-color-scheme: dark)').matches}catch(e){}H.classList.toggle('wzdark',d);const m=document.querySelector('meta[name=theme-color]');if(m)m.content=d?'#0b1a21':'#0f222c'}
+try{new MutationObserver(()=>setTimeout(thm,0)).observe(H,{attributes:true,attributeFilter:['data-mode']});matchMedia('(prefers-color-scheme: dark)').addEventListener('change',thm)}catch(e){}
+document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('[data-m]'))setTimeout(thm,60)});
+thm();
+/* --- settings: user name, hide accent colours --- */
+function decoSet(lib){const seg=lib.querySelector('.thSeg');if(!seg||lib.querySelector('#wzUser'))return;const card=seg.parentElement;
+[...card.querySelectorAll('div')].forEach(d=>{if(/^Accent colour$|keep their normal colours/.test(d.textContent.trim()))d.style.display='none'});const sw=card.querySelector('.thSw');if(sw)sw.style.display='none';
+card.insertAdjacentHTML('beforebegin','<div id="wzUser" class="wzset"><b>Your name</b><div class="wzsd">Shown in the greeting on the home screen, e.g. “Good afternoon, Varun”.</div><div class="wzrow"><input id="wzUN" maxlength="40" placeholder="e.g. Varun" aria-label="Your name"><button type="button" id="wzUS">Save</button></div></div>');
+const i=lib.querySelector('#wzUN');i.value=uName();lib.querySelector('#wzUS').onclick=()=>{try{localStorage.setItem('psyUser',i.value.trim())}catch(e){}try{say('Name saved')}catch(e){}const o=$('psyHome');if(o)deco(o)}}
+new MutationObserver(()=>{const l=$('psyLib');if(l)decoSet(l)}).observe(B,{childList:true,subtree:true});
 decoTests();try{decoSLD()}catch(e){}render(0);if($('psyHome')){const o=$('psyHome');sig=sg();ho=new MutationObserver(()=>deco(o));ho.observe(o,{childList:true});deco(o)}
 })();
 </script>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="app-version" content="47">
+<html lang="en"><head><meta charset="utf-8"><meta name="app-version" content="48">
 <script>/*psyTheme*/(function(){try{var t=JSON.parse(localStorage.getItem('psyTheme')||'{}'),A={indigo:['#4f46e5','#06b6d4','#1e1b8f'],teal:['#0f766e','#0ea5e9','#134e4a'],rose:['#be123c','#f97316','#881337'],emerald:['#047857','#84cc16','#064e3b'],slate:['#334155','#64748b','#0f172a']},a=A[t.a]||A.indigo,r=document.documentElement;r.style.setProperty('--g1',a[0]);r.style.setProperty('--g2',a[1]);r.style.setProperty('--h0',a[2]);if(t.m==='dark'||(t.m==='auto'&&matchMedia('(prefers-color-scheme: dark)').matches))r.setAttribute('data-mode','dark')}catch(e){}})()</script><script>try{if(localStorage.getItem('psyPin'))document.documentElement.className+=' locked'}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script>/*!
@@ -339,9 +339,9 @@ let cur=0,ni=0,b='';const CAP=36;
 items.forEach((it,i)=>{const need=it.h+(it.keep&&items[i+1]?items[i+1].h:0);if(ni<3&&cur>0&&cur+need>CAP){b+=imgs[ni][0];cur=imgs[ni][1];ni++}b+=it.xml;cur+=it.h});
 while(ni<3)b+=imgs[ni++][0];
 b+=PP(RP('Examined by',1,1),{keep:1,before:318,jc:'left'});
-const sid='rId'+(++n);zip.file(`word/media/img${n}.png`,Uint8Array.from(atob(SIG),c=>c.charCodeAt(0)));rels.push(`<Relationship Id="${sid}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/img${n}.png"/>`);
+const sid='rId'+(++n);zip.file(`word/media/img${n}.png`,Uint8Array.from(atob(psyExam().sig||SIG),c=>c.charCodeAt(0)));rels.push(`<Relationship Id="${sid}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/img${n}.png"/>`);
 b+=SIGP(sid,n);
-b+=`<w:p><w:pPr><w:pStyle w:val="BodyText"/><w:keepNext/><w:spacing w:before="1"/></w:pPr>${RP('Varun Muthuchamy, M.Sc., M.Phil., (Clin. Psy.) (NIMHANS)',1)}</w:p><w:p><w:pPr><w:pStyle w:val="BodyText"/><w:keepNext/></w:pPr>${RP('Consultant Clinical Psychologist,')}</w:p><w:p><w:pPr><w:pStyle w:val="BodyText"/></w:pPr>${RP('RCI No.: A72711.')}</w:p>`;
+b+=`<w:p><w:pPr><w:pStyle w:val="BodyText"/><w:keepNext/><w:spacing w:before="1"/></w:pPr>${RP(psyExam().name,1)}</w:p><w:p><w:pPr><w:pStyle w:val="BodyText"/><w:keepNext/></w:pPr>${RP(psyExam().title)}</w:p><w:p><w:pPr><w:pStyle w:val="BodyText"/></w:pPr>${RP(psyExam().reg)}</w:p>`;
 zip.file('word/document.xml',(await zip.file('word/document.xml').async('string')).replace('@@BODY@@',()=>b).replace('w:bottom="630"','w:bottom="1500"'));
 zip.file('word/_rels/document.xml.rels',(await zip.file('word/_rels/document.xml.rels').async('string')).replace('@@RELS@@',()=>rels.join('')));
 return zip.generateAsync({type:'blob',mimeType:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'})}
@@ -519,9 +519,9 @@ b+=it.xml;cur+=it.h;since+=it.h;while(cur>CAP){cur-=CAP;pg++}});
 while(ni<imgs.length)b+=imgs[ni++].xml;
 {const k=b.lastIndexOf('<w:p><w:pPr>');if(k>=0&&b.indexOf('<w:keepNext/>',k)<0)b=b.slice(0,k)+'<w:p><w:pPr><w:keepNext/>'+b.slice(k+12)}
 b+=PP(RP('Examined by',1,1),{keep:1,before:318,jc:'left'});
-const sid='rId'+(++n);zip.file(`word/media/img${n}.png`,Uint8Array.from(atob(SIG),c=>c.charCodeAt(0)));rels.push(`<Relationship Id="${sid}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/img${n}.png"/>`);
+const sid='rId'+(++n);zip.file(`word/media/img${n}.png`,Uint8Array.from(atob(psyExam().sig||SIG),c=>c.charCodeAt(0)));rels.push(`<Relationship Id="${sid}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/img${n}.png"/>`);
 b+=SIGP(sid,n);
-b+=`<w:p><w:pPr><w:pStyle w:val="BodyText"/><w:keepNext/><w:spacing w:before="1"/></w:pPr>${RP('Varun Muthuchamy, M.Sc., M.Phil., (Clin. Psy.) (NIMHANS)',1)}</w:p><w:p><w:pPr><w:pStyle w:val="BodyText"/><w:keepNext/></w:pPr>${RP('Consultant Clinical Psychologist,')}</w:p><w:p><w:pPr><w:pStyle w:val="BodyText"/></w:pPr>${RP('RCI No.: A72711.')}</w:p>`;
+b+=`<w:p><w:pPr><w:pStyle w:val="BodyText"/><w:keepNext/><w:spacing w:before="1"/></w:pPr>${RP(psyExam().name,1)}</w:p><w:p><w:pPr><w:pStyle w:val="BodyText"/><w:keepNext/></w:pPr>${RP(psyExam().title)}</w:p><w:p><w:pPr><w:pStyle w:val="BodyText"/></w:pPr>${RP(psyExam().reg)}</w:p>`;
 zip.file('word/document.xml',await lhApply(zip,(await zip.file('word/document.xml').async('string')).replace('@@BODY@@',()=>b).replace('w:bottom="630"','w:bottom="'+LHx.bot+'"')));
 zip.file('word/_rels/document.xml.rels',(await zip.file('word/_rels/document.xml.rels').async('string')).replace('@@RELS@@',()=>rels.join('')));
 return zip.generateAsync({type:'blob',mimeType:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'})}
@@ -1858,7 +1858,20 @@ const kids=(el,n)=>[...el.childNodes].filter(c=>c.nodeType===1&&(!n||c.nodeName=
 const kid=(el,n)=>el?kids(el,n)[0]:null;
 const at=(el,a)=>el?el.getAttribute(a):null;
 const num=(v,d)=>v==null||v===''?d:+v;
-async function docxToPdf(blob){
+/* canvas twin of the few jsPDF calls used below, for the on-screen preview */
+function CanvasDoc(PW,PH,scale){this.PW=PW;this.PH=PH;this.s=scale;this.pages=[];this.f={st:'normal',w:400,sz:12};this.fill='#000';this.stroke='#000';this.lw=1;this.tc='#111';this._new()}
+CanvasDoc.prototype={_new(){const c=document.createElement('canvas');c.width=Math.round(this.PW*this.s);c.height=Math.round(this.PH*this.s);const x=c.getContext('2d');x.scale(this.s,this.s);x.fillStyle='#fff';x.fillRect(0,0,this.PW,this.PH);this.pages.push(c);this.x=x},
+addPage(){this._new()},addFileToVFS(){},addFont(){},
+setFont(n,st){this.f.st=st==='italic'?'italic':'normal';this.f.w=st==='bold'?700:400},setFontSize(z){this.f.sz=z},
+_font(){this.x.font=this.f.st+' '+this.f.w+' '+this.f.sz+'px NSPDF'},getTextWidth(t){this._font();return this.x.measureText(t).width},
+_c(a){return typeof a==='string'?a:'rgb('+a.join(',')+')'},setTextColor(...a){this.tc=this._c(a.length>1?a:a[0])},setDrawColor(...a){this.stroke=this._c(a.length>1?a:a[0])},setFillColor(...a){this.fill=this._c(a.length>1?a:a[0])},setLineWidth(w){this.lw=w},
+text(t,x,y){this._font();this.x.fillStyle=this.tc;this.x.fillText(t,x,y)},line(a,b,c,d){const x=this.x;x.strokeStyle=this.stroke;x.lineWidth=this.lw;x.beginPath();x.moveTo(a,b);x.lineTo(c,d);x.stroke()},
+rect(a,b,c,d,st){const x=this.x;if(st==='F'){x.fillStyle=this.fill;x.fillRect(a,b,c,d)}else{x.strokeStyle=this.stroke;x.lineWidth=this.lw;x.strokeRect(a,b,c,d)}},
+addImage(im,t,a,b,c,d){this.x.drawImage(im,a,b,c,d)},getImageProperties(im){return{width:im.width,height:im.height}}};
+let fontsReady=null;function loadFonts(){if(fontsReady)return fontsReady;const ab=b=>Uint8Array.from(atob(b),c=>c.charCodeAt(0)).buffer;
+ fontsReady=Promise.all([new FontFace('NSPDF',ab(FONTS.r),{weight:'400'}),new FontFace('NSPDF',ab(FONTS.b),{weight:'700'}),new FontFace('NSPDF',ab(FONTS.i),{weight:'400',style:'italic'})].map(f=>f.load().then(x=>{document.fonts.add(x)})));return fontsReady}
+async function docxToPdf(blob,target){const CV=target==='canvas';if(CV)await loadFonts();
+const bmp=async d=>CV?await createImageBitmap(new Blob([d],{type:'image/png'})):d;
   const zip=await JSZip.loadAsync(blob),X=s=>new DOMParser().parseFromString(s,'application/xml');
   const doc=X(await zip.file('word/document.xml').async('string'));
   const rels={};X(await zip.file('word/_rels/document.xml.rels').async('string')).querySelectorAll('Relationship').forEach(r=>rels[r.getAttribute('Id')]=r.getAttribute('Target'));
@@ -1868,15 +1881,15 @@ async function docxToPdf(blob){
   let LH=null;const hr=kid(sect,'w:headerReference');
   if(hr&&rels[at(hr,'r:id')]){const hp='word/'+rels[at(hr,'r:id')],hrp=hp.replace(/([^/]+)$/,'_rels/$1.rels'),hx=zip.file(hp),rx=zip.file(hrp);
     if(hx&&rx){const hd=X(await hx.async('string')),hrels={};X(await rx.async('string')).querySelectorAll('Relationship').forEach(r=>hrels[r.getAttribute('Id')]=r.getAttribute('Target'));
-      const bl=hd.getElementsByTagName('a:blip')[0];if(bl){const t=hrels[at(bl,'r:embed')];const f=t&&zip.file('word/'+t.replace(/^\.\//,''));if(f)LH=await f.async('uint8array')}}}
-  const pdf=new jspdf.jsPDF({unit:'pt',format:[PW,PH],compress:true});
+      const bl=hd.getElementsByTagName('a:blip')[0];if(bl){const t=hrels[at(bl,'r:embed')];const f=t&&zip.file('word/'+t.replace(/^\.\//,''));if(f)LH=await bmp(await f.async('uint8array'))}}}
+  const pdf=CV?new CanvasDoc(PW,PH,2):new jspdf.jsPDF({unit:'pt',format:[PW,PH],compress:true});
   pdf.addFileToVFS('nsr.ttf',FONTS.r);pdf.addFont('nsr.ttf','NS','normal');pdf.addFileToVFS('nsb.ttf',FONTS.b);pdf.addFont('nsb.ttf','NS','bold');pdf.addFileToVFS('nsi.ttf',FONTS.i);pdf.addFont('nsi.ttf','NS','italic');
   const sf=(b,i,sz)=>{pdf.setFont('NS',b?'bold':i?'italic':'normal');pdf.setFontSize(sz)};
-  const imgCache={};const img=async id=>{if(imgCache[id])return imgCache[id];const f=zip.file('word/'+rels[id]);if(!f)return null;const d=await f.async('uint8array');const p=pdf.getImageProperties(d);return imgCache[id]={d,w:p.width,h:p.height,a:'im_'+id}};
+  const imgCache={};const img=async id=>{if(imgCache[id])return imgCache[id];const f=zip.file('word/'+rels[id]);if(!f)return null;const d=await bmp(await f.async('uint8array'));const p=pdf.getImageProperties(d);return imgCache[id]={d,w:p.width,h:p.height,a:'im_'+id}};
   let y=MT,page=1,first=true,numCtr={};
   const drawLH=()=>{if(LH)pdf.addImage(LH,'PNG',0,0,PW,PH,'lh','FAST')};
   drawLH();
-  const newPage=()=>{pdf.addPage([PW,PH]);page++;drawLH();y=MT};
+  const newPage=()=>{pdf.addPage([PW,PH]);if(CV)pdf.x.fillStyle='#fff';page++;drawLH();y=MT};
   const room=()=>PH-MB-y;
   // ---- paragraph model ----
   function rprOf(r,base){const p=kid(r,'w:rPr'),o=Object.assign({b:false,i:false,u:false,sz:12,col:null},base||{});if(!p)return o;
@@ -1940,7 +1953,7 @@ async function docxToPdf(blob){
   const blocks=kids(body).filter(e=>e.nodeName==='w:p'||e.nodeName==='w:tbl');
   const parsed=blocks.map(b=>b.nodeName==='w:p'?parsePara(b):b);
   for(let k=0;k<parsed.length;k++){const b=parsed[k];if(b.nodeName==='w:tbl')await table(b);else{const nx=parsed[k+1];await para(b,nx&&nx.nodeName!=='w:tbl'?nx:null,k)}}
-  return pdf.output('blob')}
+  return CV?pdf.pages:pdf.output('blob')}
 window.docxToPdf=docxToPdf;
 async function makePdf(){try{const _i=readyIssues();if(_i.some(x=>x.lvl==='warn')&&!(await readyDialog(_i,true)))return;say('Building PDF…');
   const docx=await buildDocx(),blob=await docxToPdf(docx),d=await getSaver();if(!d){say('Download is not available in this view.');return}
@@ -2153,6 +2166,35 @@ html.wzdark #psyLib [style*="var(--g1)"],html.wzdark #psyLib .on{color:#0f222c!i
 .wzoi{flex:0 0 44px;height:44px;border-radius:12px;background:#0f222c;color:#ffde00;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px}
 .wzshc .wzfull{margin-top:8px}
 html.wzdark .wzshc{background:#15303c;color:#e8f0f2}html.wzdark .wzshs,html.wzdark .wzopt small{color:#a9c6cf}html.wzdark .wzopt{background:#0b1a21;color:#e8f0f2;box-shadow:inset 0 0 0 1px #2a4a58}
+/* v48 */
+.wzpair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.wzpair .wz2{height:52px;font-size:14px}
+.wzsm{flex:0 0 auto!important;height:42px!important;padding:0 16px;font-size:14px!important}
+.wzpv{position:fixed;inset:0;z-index:99990;background:#cfd8db;display:flex;flex-direction:column;font-family:Poppins,'Segoe UI',Roboto,Arial,sans-serif}
+.wzpvb{display:flex;align-items:center;gap:12px;padding:calc(10px + env(safe-area-inset-top,0px)) 14px 10px;background:#eef2f3;color:#0f222c}
+.wzpvb b{flex:1;font-size:16px;font-weight:600}.wzpvb span{font-size:12px;color:#4d6470}
+.wzpvp{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.wzpg{width:100%;max-width:760px;height:auto;background:#fff;box-shadow:0 2px 10px rgba(15,34,44,.2)}
+.wzpvw{margin-top:40px;font-size:14px;color:#0f222c}
+body.wz.wz-text main{display:block!important;background:transparent!important;box-shadow:none!important;padding:0!important;margin:0!important}
+body.wz.wz-text .panel,body.wz.wz-text #wzHd,body.wz.wz-text #wzTop{display:none!important}
+body.wz.wz-text{padding-top:0!important}
+body.wz.wz-text main nav.tabs,body.wz.wz-text main .blk:not(#blkR),body.wz.wz-text main .note,body.wz.wz-text #blkR>.ph{display:none!important}body.wz.wz-text #blkR{display:block!important;background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important}
+#wzTxH{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:12px;background:#eef2f3;padding:calc(14px + env(safe-area-inset-top,0px)) 4px 12px}
+#wzTxH>div{flex:1}#wzTxH b{display:block;font-size:20px;font-weight:600}#wzTxH small{display:block;font-size:12px;color:#4d6470;line-height:1.4}
+body.wz.wz-text main .fld{background:#fff;border-radius:16px;padding:12px 14px!important;box-shadow:0 1px 2px rgba(15,34,44,.06);font-size:13px!important;color:#0f222c!important}
+body.wz.wz-text main textarea{background:#eef2f3!important;border:0!important;border-radius:12px!important;box-shadow:inset 0 2px 0 #dde3e6!important;font:400 14px/1.55 Poppins,sans-serif!important;color:#0f222c!important;min-height:120px;padding:10px 12px!important}
+html.wzdark #wzTxH{background:#0b1a21}html.wzdark body.wz.wz-text main .fld{background:#15303c;color:#e8f0f2!important}html.wzdark body.wz.wz-text main textarea{background:#0b1a21!important;color:#e8f0f2!important;box-shadow:inset 0 2px 0 #050e13!important}
+.wzl{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:600;color:#4d6470;margin:0 0 10px}
+.wzl input{height:44px;border:0;border-radius:12px;background:#eef2f3;box-shadow:inset 0 2px 0 #dde3e6;padding:0 12px;font:500 14px Poppins,sans-serif;color:#0f222c}
+.wzsig{display:flex;align-items:center;gap:12px;background:#eef2f3;border-radius:12px;padding:8px 12px}.wzsig img{width:96px;height:72px;object-fit:contain;background:#fff;border-radius:8px}.wzsig span{font-size:12px;color:#4d6470}
+.wzset .wzrow .wz2{height:44px;font-size:13px}
+.wzol{margin:4px 0 8px 18px;padding:0;font-size:13px;line-height:1.5}
+.wzbk{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;margin-top:12px;border:0;border-radius:14px;background:#fff3cd;padding:12px 14px;font:500 13px Poppins,sans-serif;color:#5c4400;box-shadow:inset 0 0 0 1px #f0d77a;cursor:pointer;text-align:left}
+.wzbk b{white-space:nowrap;font-weight:600;color:#0f222c}
+html.wzdark .wzl input{background:#0b1a21;color:#e8f0f2;box-shadow:inset 0 2px 0 #050e13}html.wzdark .wzsig{background:#0b1a21}html.wzdark .wzol{color:#e8f0f2}
+.wzset .wzrow .wz2{background:#fff!important;color:#0f222c!important;box-shadow:inset 0 0 0 1px #c9d3d6!important;font-weight:600}
+html.wzdark .wzset .wzrow .wz2{background:#0b1a21!important;color:#e8f0f2!important;box-shadow:inset 0 0 0 1px #2a4a58!important}
+#wzTxR{height:42px;padding:0 14px;border:0;border-radius:12px;background:#fff;color:#0f222c;font:600 13px Poppins,sans-serif;box-shadow:inset 0 0 0 1px #c9d3d6;cursor:pointer}
 </style>
 <script>/* ---- IMHAPS guided steps (v45) ---- */
 (function(){
@@ -2169,7 +2211,7 @@ const mk=id=>{const d=document.createElement('div');d.id=id;d.className='wzcard'
 const cS=mk('wzS_client'),tS=mk('wzS_tests'),rS=mk('wzS_review'),tH=P.querySelector('h2.sec.t');
 let ph='c';[...P.children].forEach(el=>{if(/^box[A-Z]$/.test(el.id)){el.dataset.wz='1';el.classList.add('wzcard');ph='x';return}if(el===tH)ph='t';if(ph==='c')cS.appendChild(el);else if(ph==='t')tS.appendChild(el);else el.dataset.wz='1'});
 P.insertBefore(tS,P.firstChild);P.insertBefore(cS,tS);P.appendChild(rS);
-rS.innerHTML='<div id="wzTiles" class="wzTiles"></div><div class="wzh">Before you generate</div><div id="wzChk"></div><div class="wzh">Letterhead</div><div id="wzLH"></div><button type="button" id="wzPrev" class="wz2 wzfull">Preview charts and report text</button>';
+rS.innerHTML='<div id="wzTiles" class="wzTiles"></div><div class="wzh">Before you generate</div><div id="wzChk"></div><div class="wzh">Letterhead</div><div id="wzLH"></div><div class="wzpair"><button type="button" id="wzPV" class="wz2">Preview report</button><button type="button" id="wzTX" class="wz2">Edit report text</button></div>';
 $('wzLH').append($('lh').closest('label'),$('lhbox'));
 /* --- top bar, heading, bottom bar --- */
 B.insertAdjacentHTML('afterbegin','<div id="wzTop"><button type="button" class="wzb" id="wzBack" aria-label="Back">'+svg('M15 6l-6 6 6 6')+'</button><div id="wzProg" aria-hidden="true"><span></span><span></span><span></span><span></span></div><span id="wzN"></span><button type="button" class="wzb" id="wzSave" aria-label="Save case">'+svg('M5 4h11l3 3v13H5zM8 4v5h7V4M8 20v-6h8v6',0,2)+'</button></div><div id="wzHd"><div class="wzk" id="wzK"></div><div class="wzt" id="wzT"></div></div>');
@@ -2192,7 +2234,7 @@ function go(d){const L=steps(),i=L.indexOf(cur)+d;if(i<0){openHome();return}cur=
 window.wzGo=s=>{cur=s;render(1)};
 $('wzBack').onclick=()=>go(-1);$('wz1').onclick=()=>{if(cur==='review')chooseFmt();else go(1)};
 const save=()=>{const b=$('btnSave');if(b)b.click()};$('wz2').onclick=save;$('wzSave').onclick=save;
-$('wzPrev').onclick=()=>{const on=B.classList.toggle('wz-main');$('wzPrev').textContent=on?'Hide charts and report text':'Preview charts and report text';if(on)setTimeout(()=>{const m=document.querySelector('main');if(m)m.scrollIntoView({behavior:'smooth'})},50)};
+$('wzPV').onclick=()=>preview();$('wzTX').onclick=()=>textMode(true);
 /* --- review --- */
 const band=v=>{const b=BANDS.find(x=>v>=x.a&&v<x.b);return b?b.n:''};
 const STEPOF=m=>{if(/name|birth|assessment/i.test(m))return'client';if(/No test/.test(m))return'tests';const t=ORD.find(x=>m.indexOf(TN[x].replace('-2',''))===0||(x==='A'&&/^CARS/.test(m))||(x==='B'&&/^Brown/.test(m)));return t?'s'+t:''};
@@ -2244,7 +2286,7 @@ function back(){const L=[...B.children].filter(e=>e.id&&e.id!=='psyLock'&&e.id!=
 if($('psyLock'))return true;
 if(L.length){L[L.length-1].remove();return true}
 const lib=$('psyLib');if(lib){lib.remove();if($('psyHome'))try{openHome()}catch(e){}return true}
-if(B.classList.contains('wz-main')){$('wzPrev').click();return true}
+if(B.classList.contains('wz-text')){textMode(false);return true}
 if(!$('psyHome')){if(cur==='client')openHome();else go(-1);return true}
 return false}
 window.wzBack=back;
@@ -2261,7 +2303,7 @@ function decoSet(lib){const seg=lib.querySelector('.thSeg');if(!seg||lib.querySe
 [...card.querySelectorAll('div')].forEach(d=>{if(/^Accent colour$|keep their normal colours/.test(d.textContent.trim()))d.style.display='none'});const sw=card.querySelector('.thSw');if(sw)sw.style.display='none';
 card.insertAdjacentHTML('beforebegin','<div id="wzUser" class="wzset"><b>Your name</b><div class="wzsd">Shown in the greeting on the home screen, e.g. “Good afternoon, Varun”.</div><div class="wzrow"><input id="wzUN" maxlength="40" placeholder="e.g. Varun" aria-label="Your name"><button type="button" id="wzUS">Save</button></div></div>');
 const i=lib.querySelector('#wzUN');i.value=uName();lib.querySelector('#wzUS').onclick=()=>{try{localStorage.setItem('psyUser',i.value.trim())}catch(e){}try{say('Name saved')}catch(e){}const o=$('psyHome');if(o)deco(o)}}
-new MutationObserver(()=>{const l=$('psyLib');if(l)decoSet(l)}).observe(B,{childList:true,subtree:true});
+new MutationObserver(()=>{const l=$('psyLib');if(l){decoSet(l);try{backupTab(l)}catch(e){}const u=l.querySelector('#wzUser');if(u)examCard(l,u.nextElementSibling||u)}const h=$('psyHome');if(h)try{homeBanner(h)}catch(e){}}).observe(B,{childList:true,subtree:true});
 
 /* --- report format choice, done sheet, PIN auto-unlock (v47) --- */
 const esc2=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
@@ -2284,6 +2326,37 @@ const _ar=window.archiveReport;window.archiveReport=async function(b,fn){window.
 const sha2=async s=>{try{const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}catch(e){let h=5381;for(const c of s)h=((h<<5)+h+c.charCodeAt(0))|0;return'x'+h}};
 function lockHook(){const i=$('lkP');if(!i||i.dataset.wz)return;i.dataset.wz=1;i.addEventListener('input',async()=>{const v=i.value;if(v.length<4)return;let p=null;try{p=JSON.parse(localStorage.getItem('psyPin')||'null')}catch(e){}if(p&&p.h===await sha2(p.salt+v)&&i.value===v){const b=$('lkB');if(b)b.click()}})}
 new MutationObserver(()=>{if($('psyLock'))lockHook()}).observe(B,{childList:true});if($('psyLock'))lockHook();
+
+/* --- v48: report preview, text editor, examiner details, Drive backup and sync --- */
+async function preview(){const o=wzSheet('wzPv','');o.className='wzpv';o.innerHTML='<div class="wzpvb"><button type="button" class="wzb" id="wzPvX" aria-label="Close preview">'+svg('M6 6l12 12M18 6L6 18')+'</button><b>Report preview</b><span id="wzPvN"></span><button type="button" class="wz1 wzsm" id="wzPvG">Generate</button></div><div class="wzpvp" id="wzPvP"><div class="wzpvw">Preparing preview…</div></div>';
+o.querySelector('#wzPvX').onclick=()=>o.remove();o.querySelector('#wzPvG').onclick=()=>{o.remove();chooseFmt()};
+try{const pages=await docxToPdf(await buildDocx(),'canvas');const P=o.querySelector('#wzPvP');P.innerHTML='';pages.forEach((c,i)=>{c.className='wzpg';c.setAttribute('role','img');c.setAttribute('aria-label','Page '+(i+1));P.appendChild(c)});o.querySelector('#wzPvN').textContent=pages.length+' pages'}
+catch(e){o.querySelector('#wzPvP').innerHTML='<div class="wzpvw">Could not build the preview: '+esc2((e&&e.message)||e)+'</div>'}}
+function textMode(on){if(on){try{fillDrafts()}catch(e){}B.classList.add('wz-text');const m=document.querySelector('main');if(m&&!$('wzTxH')){m.insertAdjacentHTML('afterbegin','<div id="wzTxH"><div><b>Report text</b><small>Drafts are written from your scores. Anything you change here is kept and goes into the Word and PDF report.</small></div><button type="button" id="wzTxR">Reset to drafts</button><button type="button" class="wz1 wzsm" id="wzTxD">Done</button></div>');$('wzTxD').onclick=()=>textMode(false);$('wzTxR').onclick=()=>{const r=$('regen');if(r)r.click()}}window.scrollTo(0,0)}else{B.classList.remove('wz-text');render(1)}}
+const EXD={name:'Varun Muthuchamy, M.Sc., M.Phil., (Clin. Psy.) (NIMHANS)',title:'Consultant Clinical Psychologist,',reg:'RCI No.: A72711.',sig:''};
+window.psyExam=()=>{let o={};try{o=JSON.parse(localStorage.getItem('psyExam')||'{}')}catch(e){}return Object.assign({},EXD,o)};
+function examCard(lib,before){if(lib.querySelector('#wzExam'))return;const E=psyExam();before.insertAdjacentHTML('beforebegin','<div id="wzExam" class="wzset"><b>Report signature</b><div class="wzsd">Printed under “Examined by” at the end of every Word and PDF report.</div>'
++'<label class="wzl">Name and qualifications<input id="wzEN" maxlength="120"></label><label class="wzl">Designation<input id="wzET" maxlength="120"></label><label class="wzl">Registration line<input id="wzER" maxlength="80"></label>'
++'<div class="wzl">Signature image<div class="wzsig"><img id="wzES" alt="Signature preview"><span id="wzE0">Built-in signature</span></div><div class="wzrow"><button type="button" id="wzEU" class="wz2">Upload signature</button><button type="button" id="wzEC" class="wz2">Use built-in</button></div><input type="file" id="wzEF" accept="image/*" style="display:none"></div>'
++'<button type="button" id="wzEV" class="wz1 wzfull">Save signature details</button></div>');
+const g2=id=>lib.querySelector('#'+id);g2('wzEN').value=E.name;g2('wzET').value=E.title;g2('wzER').value=E.reg;let sig=E.sig;
+const show=()=>{const im=g2('wzES');im.src='data:image/png;base64,'+(sig||SIG);g2('wzE0').textContent=sig?'Your uploaded signature':'Built-in signature'};show();
+g2('wzEU').onclick=()=>g2('wzEF').click();g2('wzEC').onclick=()=>{sig='';show()};
+g2('wzEF').onchange=e=>{const f=e.target.files[0];if(!f)return;const im=new Image();im.onload=()=>{const c=document.createElement('canvas');c.width=600;c.height=450;const x=c.getContext('2d');const r=Math.min(600/im.width,450/im.height);const w=im.width*r,h=im.height*r;x.drawImage(im,(600-w)/2,(450-h)/2,w,h);sig=c.toDataURL('image/png').split(',')[1];show();URL.revokeObjectURL(im.src)};im.src=URL.createObjectURL(f)};
+g2('wzEV').onclick=()=>{try{localStorage.setItem('psyExam',JSON.stringify({name:g2('wzEN').value.trim(),title:g2('wzET').value.trim(),reg:g2('wzER').value.trim(),sig}));say('Signature details saved')}catch(e){say('Could not save: the image may be too large',1)}}}
+const lastBk=()=>{try{return +localStorage.getItem('psyLastBackup')||0}catch(e){return 0}};
+function backupTab(lib){const out=lib.querySelector('#bkOut');if(!out||lib.querySelector('#wzDrv'))return;const card=out.parentElement;
+out.insertAdjacentHTML('beforebegin','<button type="button" id="wzDrv" class="wz1 wzfull" style="margin:10px 0 8px">Back up to Google Drive</button>');
+lib.querySelector('#wzDrv').onclick=()=>{window.__wzDrive=1;out.click()};
+const inb=lib.querySelector('#bkIn');if(inb)inb.textContent='Merge from a backup file';
+const lb=lastBk();card.insertAdjacentHTML('afterend','<div class="wzset" id="wzSync"><b>Phone and laptop together</b><div class="wzsd" style="margin-bottom:6px">Last backup: '+(lb?new Date(lb).toLocaleString([], {day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}):'never')+'</div>'
++'<ol class="wzol"><li>On the device where you worked, tap <b>Back up to Google Drive</b> and choose <b>Drive</b> in the share sheet.</li><li>On the other device, download that file from Google Drive and tap <b>Merge from a backup file</b>.</li></ol><div class="wzsd">Merging only adds new cases and reports and updates older copies; nothing is deleted, so you can merge in both directions.</div></div>')}
+const _say2=window.say;window.say=function(m){const r=_say2.apply(this,arguments);try{if(m==='Backup ready'){try{localStorage.setItem('psyLastBackup',String(Date.now()))}catch(e){}
+ if(window.__wzDrive){window.__wzDrive=0;setTimeout(()=>{const sv=$('psySaved'),sh=sv&&sv.querySelector('#svShare');if(sh)sh.click();else doneSheet('Backup file downloaded')},300)}}
+ if(/^Imported /.test(m))try{localStorage.setItem('psyLastSync',String(Date.now()))}catch(e){}}catch(e){}return r};
+function homeBanner(o){const b=o.querySelector('.hm-body');if(!b||o.querySelector('#wzBk'))return;const lb=lastBk(),days=lb?Math.floor((Date.now()-lb)/864e5):null;const cnt=o.querySelector('#hmCases small');const n=cnt?parseInt(cnt.textContent)||0:0;if(!n)return;if(days!==null&&days<7)return;
+ const nw=o.querySelector('.hm-new');(nw||b.firstChild).insertAdjacentHTML('afterend','<button type="button" id="wzBk" class="wzbk"><span>'+(days===null?'You have never backed up your cases.':'Last backup '+days+' days ago.')+'</span><b>Back up now</b></button>');
+ o.querySelector('#wzBk').onclick=()=>{const s=o.querySelector('#hmSet');if(s)s.click();setTimeout(()=>{const t=[...document.querySelectorAll('#psyLib button')].find(x=>x.textContent.trim()==='Backup');if(t)t.click()},250)}}
 decoTests();try{decoSLD()}catch(e){}render(0);if($('psyHome')){const o=$('psyHome');sig=sg();ho=new MutationObserver(()=>deco(o));ho.observe(o,{childList:true});deco(o)}
 })();
 </script>

@@ -19,7 +19,10 @@ and the phone's Share sheet opens so you can send the file to WhatsApp, Drive, e
 
 If the run shows a red cross, open it and send me a screenshot of the error.
 
-OPTION B - Installable web app (no APK)
-Upload the "www" folder to any free static host (GitHub Pages, Netlify Drop, Cloudflare Pages).
-Open the link in Chrome on the phone > menu > "Install app" / "Add to Home screen".
-It then opens full-screen like an app and works offline.
+OPTION B - Install on a laptop from the browser (GitHub Pages)
+One-time setup: on github.com open the repository > Settings > Pages >
+"Build and deployment" > Source: choose "GitHub Actions". Every push to main
+then publishes the www folder automatically (workflow "Publish web app").
+Open https://varungclassroom-arch.github.io/Psychometric-app/ in Chrome or Edge
+and click the install icon in the address bar (or menu > Install app). It opens in
+its own window with the IMHAPS icon, works offline and updates itself.

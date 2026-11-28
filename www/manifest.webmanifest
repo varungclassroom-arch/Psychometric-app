@@ -3,8 +3,8 @@
  "short_name": "Psychometric",
  "start_url": "./index.html",
  "display": "standalone",
- "background_color": "#ffffff",
- "theme_color": "#4f46e5",
+ "background_color": "#eef2f3",
+ "theme_color": "#0f222c",
  "icons": [
   {
    "src": "icon-192.png",
@@ -15,7 +15,7 @@
    "src": "icon-512.png",
    "sizes": "512x512",
    "type": "image/png",
-   "purpose": "any maskable"
+   "purpose": "any"
   }
  ]
 }
